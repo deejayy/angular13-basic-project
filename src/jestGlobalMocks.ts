@@ -8,7 +8,7 @@ export interface StorageMockInterface {
 }
 
 export class StorageMock implements StorageMockInterface {
-  private storage = {};
+  private storage: { [key: string]: any } = {};
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public setItem(key: string, value?: any) {

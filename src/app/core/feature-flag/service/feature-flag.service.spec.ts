@@ -15,6 +15,7 @@ class MockConfigService {
         'feature-5': { subFeature: true },
       };
     }
+    return {};
   };
 }
 
@@ -36,16 +37,14 @@ describe('FeatureFlagService', () => {
     expect(service).toBeTruthy();
   });
 
-  const testCases = [
+  test.each([
     ['feature-0', undefined],
     ['feature-1', true],
     ['feature-2', undefined],
     ['feature-3', undefined],
     ['feature-4', [1, TEST_VALUE]],
     ['feature-5', { subFeature: true }],
-  ];
-
-  test.each(testCases)(
+  ])(
     'getFeatureSetting %#: %p',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (input: string, expected: any) => {
