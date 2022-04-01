@@ -16,12 +16,20 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "target": "es2017",
     "module": "es2020",
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@core/*": ["src/app/core/*"],
+      "@feature/*": ["src/app/feature/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@env/*": ["src/environments/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
