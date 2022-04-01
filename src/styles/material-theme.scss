@@ -1,0 +1,97 @@
+/* stylelint-disable value-keyword-case */
+@import '../../node_modules/modern-css-reset/dist/reset.css';
+@import 'app-theme.scss';
+@import 'fonts.scss';
+@import '~@angular/material/theming';
+
+$mat-app: (
+  50: $theme-color-1,
+  100: $theme-color-2,
+  200: $theme-color-3,
+  300: $theme-color-4,
+  400: $theme-color-5,
+  500: $theme-color-6,
+  600: $theme-color-7,
+  700: $theme-color-8,
+  800: $theme-color-9,
+  900: $theme-color-10,
+  A100: $theme-light,
+  A200: $theme-default,
+  A400: $theme-hover,
+  A700: $theme-pressed,
+  contrast: (
+    50: $black,
+    100: $black,
+    200: $black,
+    300: $black,
+    400: $white,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+    A100: $black,
+    A200: $white,
+    A400: $white,
+    A700: $white,
+  ),
+);
+
+$mat-app-warn: (
+  50: $warn-color-1,
+  100: $warn-color-2,
+  200: $warn-color-3,
+  300: $warn-color-4,
+  400: $warn-color-5,
+  500: $warn-color-6,
+  600: $warn-color-7,
+  700: $warn-color-8,
+  800: $warn-color-9,
+  900: $warn-color-10,
+  A100: $warn-light,
+  A200: $warn-default,
+  A400: $warn-hover,
+  A700: $warn-pressed,
+  contrast: (
+    50: $black,
+    100: $black,
+    200: $black,
+    300: $black,
+    400: $black,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+    A100: $black,
+    A200: $white,
+    A400: $white,
+    A700: $white,
+  ),
+);
+
+$app-theme: mat-palette($mat-app);
+$app-accent: mat-palette($mat-app, A200, A100, A400);
+$app-warn: mat-palette($mat-app-warn, A200, A100, A400);
+$app-theme: mat-light-theme($app-theme, $app-accent, $app-warn);
+
+$custom-typography: mat-typography-config(
+  $font-family: $theme-font,
+  $headline: mat-typography-level(32px, 48px, 800),
+  $caption: mat-typography-level(16px, 24px, 400),
+  $body-1: mat-typography-level(16px, 24px, 400),
+  $body-2: mat-typography-level(16px, 24px, 600),
+);
+
+@include mat-core($custom-typography);
+@include angular-material-theme($app-theme);
+
+.cdk-overlay-container {
+  z-index: 2000;
+}
+
+html {
+  color: $font-color;
+  font-size: 16px;
+  font-family: $theme-font;
+}

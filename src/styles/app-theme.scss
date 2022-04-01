@@ -1,0 +1,45 @@
+@import 'mixins.scss';
+
+$theme-color-1: hsl(210, 100%, 75%);
+$theme-color-2: hsl(210, 100%, 70%);
+$theme-color-3: hsl(210, 100%, 65%);
+$theme-color-4: hsl(210, 100%, 60%);
+$theme-color-5: hsl(210, 100%, 55%);
+$theme-color-6: hsl(210, 100%, 50%);
+$theme-color-7: hsl(210, 100%, 45%);
+$theme-color-8: hsl(210, 100%, 40%);
+$theme-color-9: hsl(210, 100%, 35%);
+$theme-color-10: hsl(210, 100%, 30%);
+
+$theme-color: $theme-color-5;
+
+$theme-light: $theme-color-9;
+$theme-default: $theme-color;
+$theme-hover: $theme-color-4;
+$theme-pressed: $theme-color-2;
+
+$theme-background: hsl(210, 100%, 100%);
+
+$warn-color-1: hsl(0, 100%, 75%);
+$warn-color-2: hsl(0, 100%, 70%);
+$warn-color-3: hsl(0, 100%, 65%);
+$warn-color-4: hsl(0, 100%, 60%);
+$warn-color-5: hsl(0, 100%, 55%);
+$warn-color-6: hsl(0, 100%, 50%);
+$warn-color-7: hsl(0, 100%, 45%);
+$warn-color-8: hsl(0, 100%, 40%);
+$warn-color-9: hsl(0, 100%, 35%);
+$warn-color-10: hsl(0, 100%, 30%);
+
+$warn-color: $warn-color-5;
+
+$warn-light: $warn-color-9;
+$warn-default: $warn-color;
+$warn-hover: $warn-color-4;
+$warn-pressed: $warn-color-2;
+
+$font-color: rgba(32, 32, 32, 1);
+$theme-font: 'Roboto', 'Tahoma', sans-serif;
+
+$black: rgba(0, 0, 0, 1);
+$white: rgba(255, 255, 255, 1);
