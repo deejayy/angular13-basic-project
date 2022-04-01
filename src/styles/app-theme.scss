@@ -20,6 +20,24 @@ $theme-pressed: $theme-color-2;
 
 $theme-background: hsl(210, 100%, 100%);
 
+$accent-color-1: hsl(30, 100%, 75%);
+$accent-color-2: hsl(30, 100%, 70%);
+$accent-color-3: hsl(30, 100%, 65%);
+$accent-color-4: hsl(30, 100%, 60%);
+$accent-color-5: hsl(30, 100%, 55%);
+$accent-color-6: hsl(30, 100%, 50%);
+$accent-color-7: hsl(30, 100%, 45%);
+$accent-color-8: hsl(30, 100%, 40%);
+$accent-color-9: hsl(30, 100%, 35%);
+$accent-color-10: hsl(30, 100%, 30%);
+
+$accent-color: $accent-color-5;
+
+$accent-light: $accent-color-9;
+$accent-default: $accent-color;
+$accent-hover: $accent-color-4;
+$accent-pressed: $accent-color-2;
+
 $warn-color-1: hsl(0, 100%, 75%);
 $warn-color-2: hsl(0, 100%, 70%);
 $warn-color-3: hsl(0, 100%, 65%);

@@ -1,10 +1,15 @@
-/* stylelint-disable value-keyword-case */
+@use '@angular/material' as mat;
+
 @import '../../node_modules/modern-css-reset/dist/reset.css';
 @import 'app-theme.scss';
 @import 'fonts.scss';
-@import '~@angular/material/theming';
 
-$mat-app: (
+@include mat.core();
+
+$contrast-black: rgba($black, 0.87);
+$contrast-white: rgba($white, 0.92);
+
+$app-primary: (
   50: $theme-color-1,
   100: $theme-color-2,
   200: $theme-color-3,
@@ -20,24 +25,57 @@ $mat-app: (
   A400: $theme-hover,
   A700: $theme-pressed,
   contrast: (
-    50: $black,
-    100: $black,
-    200: $black,
-    300: $black,
-    400: $white,
-    500: $white,
-    600: $white,
-    700: $white,
-    800: $white,
-    900: $white,
-    A100: $black,
-    A200: $white,
-    A400: $white,
-    A700: $white,
+    50: $contrast-black,
+    100: $contrast-black,
+    200: $contrast-black,
+    300: $contrast-black,
+    400: $contrast-white,
+    500: $contrast-white,
+    600: $contrast-white,
+    700: $contrast-white,
+    800: $contrast-white,
+    900: $contrast-white,
+    A100: $contrast-black,
+    A200: $contrast-white,
+    A400: $contrast-white,
+    A700: $contrast-white,
   ),
 );
 
-$mat-app-warn: (
+$app-accent: (
+  50: $accent-color-1,
+  100: $accent-color-2,
+  200: $accent-color-3,
+  300: $accent-color-4,
+  400: $accent-color-5,
+  500: $accent-color-6,
+  600: $accent-color-7,
+  700: $accent-color-8,
+  800: $accent-color-9,
+  900: $accent-color-10,
+  A100: $accent-light,
+  A200: $accent-default,
+  A400: $accent-hover,
+  A700: $accent-pressed,
+  contrast: (
+    50: $contrast-black,
+    100: $contrast-black,
+    200: $contrast-black,
+    300: $contrast-black,
+    400: $contrast-black,
+    500: $contrast-black,
+    600: $contrast-black,
+    700: $contrast-white,
+    800: $contrast-white,
+    900: $contrast-white,
+    A100: $contrast-black,
+    A200: $contrast-black,
+    A400: $contrast-white,
+    A700: $contrast-white,
+  ),
+);
+
+$app-warn: (
   50: $warn-color-1,
   100: $warn-color-2,
   200: $warn-color-3,
@@ -53,38 +91,41 @@ $mat-app-warn: (
   A400: $warn-hover,
   A700: $warn-pressed,
   contrast: (
-    50: $black,
-    100: $black,
-    200: $black,
-    300: $black,
-    400: $black,
-    500: $white,
-    600: $white,
-    700: $white,
-    800: $white,
-    900: $white,
-    A100: $black,
-    A200: $white,
-    A400: $white,
-    A700: $white,
+    50: $contrast-black,
+    100: $contrast-black,
+    200: $contrast-black,
+    300: $contrast-black,
+    400: $contrast-black,
+    500: $contrast-white,
+    600: $contrast-white,
+    700: $contrast-white,
+    800: $contrast-white,
+    900: $contrast-white,
+    A100: $contrast-black,
+    A200: $contrast-white,
+    A400: $contrast-white,
+    A700: $contrast-white,
   ),
 );
 
-$app-theme: mat-palette($mat-app);
-$app-accent: mat-palette($mat-app, A200, A100, A400);
-$app-warn: mat-palette($mat-app-warn, A200, A100, A400);
-$app-theme: mat-light-theme($app-theme, $app-accent, $app-warn);
+$palette-primary: mat.define-palette($app-primary, 500);
+$palette-accent: mat.define-palette($app-accent, A200, A100, A400);
+$palette-warn: mat.define-palette($app-warn, A200, A100, A400);
 
-$custom-typography: mat-typography-config(
+$app-typography: mat.define-typography-config(
   $font-family: $theme-font,
-  $headline: mat-typography-level(32px, 48px, 800),
-  $caption: mat-typography-level(16px, 24px, 400),
-  $body-1: mat-typography-level(16px, 24px, 400),
-  $body-2: mat-typography-level(16px, 24px, 600),
 );
 
-@include mat-core($custom-typography);
-@include angular-material-theme($app-theme);
+$app-theme: mat.define-light-theme((
+ color: (
+   primary: $palette-primary,
+   accent: $palette-accent,
+   warn: $palette-warn,
+ ),
+ typography: $app-typography,
+));
+
+@include mat.all-component-themes($app-theme);
 
 .cdk-overlay-container {
   z-index: 2000;
@@ -92,6 +133,6 @@ $custom-typography: mat-typography-config(
 
 html {
   color: $font-color;
-  font-size: 16px;
+  font-size: 1rem;
   font-family: $theme-font;
 }
