@@ -1,0 +1,33 @@
+@import 'app-theme.scss';
+
+.api-error-modal {
+  .mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-height: 100%;
+    padding-bottom: 24px;
+  }
+
+  .mat-dialog-actions {
+    padding: 24px 24px 0;
+    border-top: 1px solid rgba($black, 0.1);
+    margin: 0 -24px;
+    min-height: auto;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    color: rgba($black, 0.8);
+    margin-bottom: 24px;
+  }
+
+  p.description {
+    font-size: 16px;
+    line-height: 1.75;
+    letter-spacing: 0.5px;
+    color: rgba($black, 0.8);
+  }
+}

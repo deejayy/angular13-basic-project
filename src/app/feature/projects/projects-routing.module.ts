@@ -6,6 +6,7 @@ const subRoutes: Routes = [
   {
     path: '',
     component: ProjectListComponent,
+    data: { pageTitle: 'Project list' },
   },
 ];
 
