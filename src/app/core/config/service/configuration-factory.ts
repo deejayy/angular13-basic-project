@@ -5,11 +5,9 @@ import { ConfigurationService } from './config.service';
 export const configurationFactory = (configurationService: ConfigurationService) => {
   return async () => {
     const configFile = environment.configuration;
-    try {
-      return configurationService.loadAppConfig(`/assets/${configFile}`);
-    } catch (err) {
-      console.error('Configuration load failed, error:', err);
-    }
+    return configurationService
+      .loadAppConfig(`/assets/${configFile}`)
+      .catch((err) => console.error('Configuration load failed, error:', err));
   };
 };
 

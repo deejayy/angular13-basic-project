@@ -6,7 +6,7 @@ export class MockApiCallerService {
   };
 
   public callApi = () => {
-    return null;
+    return this.createApiResults();
   };
 
   public resetApi = () => {

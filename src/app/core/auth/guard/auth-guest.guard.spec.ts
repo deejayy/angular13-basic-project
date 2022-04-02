@@ -1,10 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { ActivatedRouteSnapshot, UrlTree } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
+import { AppTestingModule } from 'src/app/app-testing.module';
 import { Observable, of } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { TestScheduler } from 'rxjs/testing';
-
 import { AuthFacade } from '../store/auth.facade';
 import { MockAuthFacade } from '../store/mock-auth.facade';
 import { AuthGuestGuard } from './auth-guest.guard';
@@ -17,7 +16,7 @@ describe('AuthGuestGuard', () => {
   beforeEach(() => {
     mockAuthFacade = new MockAuthFacade();
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [AppTestingModule],
       providers: [AuthGuestGuard, { provide: AuthFacade, useValue: mockAuthFacade }],
     });
     service = TestBed.inject(AuthGuestGuard);

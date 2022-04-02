@@ -29,10 +29,10 @@ export class ApiConnectorService extends ApiConnector {
   };
 
   constructor(
-    private dialog: MatDialog,
     private config: ConfigurationService,
     private initStatus: ApplicationInitStatus,
     private authService: AuthService,
+    private dialog: MatDialog,
   ) {
     super();
     this.initStatus.donePromise.then(() => {

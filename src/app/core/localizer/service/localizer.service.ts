@@ -14,10 +14,10 @@ export class LocalizerService {
     this.selectedLanguage = locale;
 
     return this.http
-      .get(`/assets/i18n/messages.${locale}.json`)
+      .get(`/assets/i18n/messages.${locale}.json?cache=${new Date().getTime()}`)
       .toPromise()
       .then((data) => {
-        loadTranslations(data as { [key: string]: string });
+        loadTranslations(data as Record<string, string>);
       })
       .catch((reason) => {
         console.error(reason);

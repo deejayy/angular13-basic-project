@@ -19,11 +19,9 @@ export const localizerFactory = (localizerService: LocalizerService, locale: str
   return async () => {
     const localeSetting = getLocaleFromLocalStorage();
     const localeId = localeSetting || locale;
-    try {
-      return localizerService.loadMessages(localeId);
-    } catch (err) {
-      console.error('Localization load failed, error:', err);
-    }
+    return localizerService
+      .loadMessages(localeId)
+      .catch((err) => console.error('Localization load failed, error:', err));
   };
 };
 

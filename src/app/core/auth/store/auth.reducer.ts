@@ -7,7 +7,7 @@ import { authInitialState, AuthState } from './auth.state';
 const reducer = createReducer(
   authInitialState,
   produceOn(AuthActions.setToken, (draft, action) => {
-    if (action.token) {
+    if (action.token !== undefined) {
       draft.token = action.token;
     }
   }),

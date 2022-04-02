@@ -1,23 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { FeatureFlagService } from './feature-flag.service';
 import { ConfigurationService } from '@core/config/service/config.service';
+import { MockConfigService } from '@core/config/service/mock-config.service';
 
 const TEST_VALUE = 2;
-
-class MockConfigService {
-  public get = (configValue: string) => {
-    if (configValue === 'features') {
-      return {
-        'feature-1': true,
-        'feature-2': false,
-        'feature-3': undefined,
-        'feature-4': [1, TEST_VALUE],
-        'feature-5': { subFeature: true },
-      };
-    }
-    return {};
-  };
-}
 
 describe('FeatureFlagService', () => {
   let service: FeatureFlagService;

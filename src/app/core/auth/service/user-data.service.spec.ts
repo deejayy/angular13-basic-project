@@ -1,7 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
-
+import { AppTestingModule } from '@app/app-testing.module';
 import { AuthFacade } from '../store/auth.facade';
 import { MockAuthFacade } from '../store/mock-auth.facade';
 import { UserDataService } from './user-data.service';
@@ -12,7 +10,7 @@ describe('UserDataService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [StoreModule.forRoot({}), EffectsModule.forRoot()],
+      imports: [AppTestingModule],
       providers: [UserDataService, { provide: AuthFacade, useValue: authFacade }],
     });
     service = TestBed.inject(UserDataService);
@@ -24,7 +22,7 @@ describe('UserDataService', () => {
 
   it('#setUserData', () => {
     service.setUserData({});
-    expect(authFacade.setUserData).toBeCalledWith({});
-    expect(authFacade.setUserData).toBeCalledTimes(1);
+    expect(authFacade.setUserData).toHaveBeenCalledWith({});
+    expect(authFacade.setUserData).toHaveBeenCalledTimes(1);
   });
 });

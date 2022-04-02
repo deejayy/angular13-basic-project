@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
+import { AppTestingModule } from '@app/app-testing.module';
 import { AuthFacade } from '../store/auth.facade';
 import { MockAuthFacade } from '../store/mock-auth.facade';
 import { AuthService } from './auth.service';
@@ -13,7 +12,7 @@ describe('AuthService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [StoreModule.forRoot({}), EffectsModule.forRoot()],
+      imports: [AppTestingModule],
       providers: [AuthService, { provide: AuthFacade, useValue: authFacade }],
     });
     service = TestBed.inject(AuthService);
