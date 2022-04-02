@@ -13,7 +13,7 @@ export class ConfigurationService {
 
   public async loadAppConfig(configPath: string = CONFIG_PATH): Promise<void> {
     return this.http
-      .get(configPath)
+      .get(`${configPath}?cache=${new Date().getTime()}`)
       .toPromise()
       .then((data) => {
         this.appConfig = data as AppConfig;

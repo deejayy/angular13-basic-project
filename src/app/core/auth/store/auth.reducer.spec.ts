@@ -1,5 +1,6 @@
 import { authReducer } from './auth.reducer';
 
+jest.useFakeTimers();
 jest.setSystemTime(new Date('2020-01-01').getTime());
 
 describe('AuthReducer', () => {

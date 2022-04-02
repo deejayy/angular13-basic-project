@@ -15,6 +15,8 @@ import { LocalizerModule } from './core/localizer/localizer.module';
 import { LocalizerService } from './core/localizer/service/localizer.service';
 import { MockApiCallerService } from './core/service/mock-api-caller.service';
 
+jest.useFakeTimers();
+
 const MODULES = [
   RouterTestingModule,
   HttpClientTestingModule,

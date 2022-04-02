@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { LocalizerService } from './localizer.service';
 
+jest.useFakeTimers();
 jest.setSystemTime(new Date('2020-01-01').getTime());
 
 const HTTP_ERROR_SAMPLE = 400;

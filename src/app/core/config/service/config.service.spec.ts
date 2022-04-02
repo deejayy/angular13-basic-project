@@ -1,10 +1,12 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { AppConfig } from '@core/config/model/config.model';
 
 import { ConfigurationService } from './config.service';
 
 const HTTP_ERROR_SAMPLE = 400;
 
+jest.useFakeTimers();
 jest.setSystemTime(new Date('2020-01-01').getTime());
 
 describe('ConfigurationService', () => {
@@ -44,9 +46,8 @@ describe('ConfigurationService', () => {
   });
 
   it('should throw because no config loaded', () => {
-    expect.assertions(1);
     try {
-      service.get('random');
+      service.get('random' as keyof AppConfig);
     } catch (error) {
       expect(error).toEqual(Error('Config file not loaded!'));
     }
@@ -72,8 +73,8 @@ describe('ConfigurationService', () => {
         expect(service.get('apiEndpoint')).toEqual('api-endpoint.local');
         service.set('apiEndpoint', 'new-api.local');
         expect(service.get('apiEndpoint')).toEqual('new-api.local');
-        service.set('testKey', 'testValue');
-        expect(service.get('testKey')).toEqual('testValue');
+        service.set('testKey' as keyof AppConfig, 'testValue');
+        expect(service.get('testKey' as keyof AppConfig)).toEqual('testValue');
       })
       .catch((error) => console.error(error));
 

@@ -24,8 +24,8 @@ describe('FeatureRouteGuard', () => {
   describe('#canActivate', () => {
     const testCasesCanActivate: [string, ActivatedRouteSnapshot, boolean][] = [
       ['without data', {} as ActivatedRouteSnapshot, true],
-      ['with invalid featureFlag', { data: { featureFlag: 'flag' } } as undefined, false],
-      ['with valid featureFlag', { data: { featureFlag: 'terminal' } } as undefined, true],
+      ['with invalid featureFlag', { data: { featureFlag: 'flag' } } as unknown as ActivatedRouteSnapshot, false],
+      ['with valid featureFlag', { data: { featureFlag: 'terminal' } } as unknown as ActivatedRouteSnapshot, true],
     ];
 
     test.each(testCasesCanActivate)('%s', (_, args, expected) => {

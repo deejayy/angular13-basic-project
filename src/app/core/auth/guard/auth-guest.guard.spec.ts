@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { ActivatedRouteSnapshot, UrlTree } from '@angular/router';
-import { AppTestingModule } from 'src/app/app-testing.module';
+import { AppTestingModule } from '@app/app-testing.module';
 import { Observable, of } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { TestScheduler } from 'rxjs/testing';
