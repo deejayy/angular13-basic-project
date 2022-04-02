@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { PageTitleService } from '@core/page-title/service/page-title.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { PageTitleService } from '@core/page-title/service/page-title.service';
 export class AppComponent {
   public defaultTitle: string = 'Projex';
 
-  constructor(private pageTitle: PageTitleService, private router: Router) {
+  constructor(private pageTitle: PageTitleService) {
     this.pageTitle.setTitle(this.defaultTitle);
     this.pageTitle.attachRoute(this.defaultTitle);
   }

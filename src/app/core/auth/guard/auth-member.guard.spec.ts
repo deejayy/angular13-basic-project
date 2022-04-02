@@ -56,7 +56,7 @@ describe('AuthMemberGuard', () => {
     mockAuthFacade.authenticated$ = of(false);
 
     (service.canActivate(route) as Observable<UrlTree>).pipe(take(1)).subscribe((canActivate: UrlTree) => {
-      expect(canActivate.root.children.primary.segments[0].path).toBe('fallback');
+      expect(canActivate.root.children['primary'].segments[0].path).toBe('fallback');
       done();
     });
   });
