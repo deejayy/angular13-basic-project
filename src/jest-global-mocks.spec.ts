@@ -1,4 +1,4 @@
-import { StorageMock } from './jestGlobalMocks';
+import { StorageMock } from './jest-global-mocks';
 
 const TEST_VALUE = 2;
 
