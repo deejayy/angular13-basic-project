@@ -1,9 +1,11 @@
-const isObject = (item) => item && typeof item === 'object' && !Array.isArray(item);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const isObject = (item: any) => item && typeof item === 'object' && !Array.isArray(item);
 
-export const mergeDeep = (target, source) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const mergeDeep = (target: any, source: any) => {
   const output = Object.assign({}, target);
   if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach((key) => {
+    Object.keys(source as object).forEach((key) => {
       if (isObject(source[key])) {
         if (!(key in target)) {
           Object.assign(output, { [key]: source[key] });
