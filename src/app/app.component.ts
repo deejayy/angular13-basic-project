@@ -9,6 +9,7 @@ import { PageTitleService } from '@core/page-title/service/page-title.service';
 })
 export class AppComponent {
   public defaultTitle: string = 'Projex';
+  public projectsTitle: string = $localize`:@@menuItemProjects:`;
 
   constructor(private pageTitle: PageTitleService) {
     this.pageTitle.setTitle(this.defaultTitle);
