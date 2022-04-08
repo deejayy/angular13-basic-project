@@ -51,6 +51,12 @@
           color: #ffffffa0;
         }
       }
+      #ie-support {
+        font-size: 16px;
+        font-weight: normal;
+        margin-top: 24px;
+        color: rgba(0, 0, 0, 0.5);
+      }
     </style>
     <link rel="icon" type="image/x-icon" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.svg" />
@@ -61,6 +67,7 @@
     <app-root>
       <div id="spinner" hidden>
         <div>Loading...</div>
+        <div id="ie-support"></div>
       </div>
     </app-root>
     <noscript>
@@ -70,6 +77,11 @@
       const spinner = document.getElementById("spinner");
       spinner.removeAttribute("hidden");
       spinner.style.display = "flex";
+      spinner.style.flexDirection = 'column';
+      if (navigator.userAgent.match(/trident/i)) {
+        document.getElementById('ie-support').innerHTML =
+          'For a full experience, please use any recent browser (Chrome, Firefox, Edge, or Safari). We do not support Internet Explorer 11 and older.';
+      }
     </script>
   </body>
 </html>

@@ -9,6 +9,7 @@
     "test": "ng test",
     "test:ci": "ng test --ci --coverage",
     "lint": "ng lint && npm run lint:styles",
+    "prepare": "git config core.hooksPath ./git-hooks || exit 0",
     "lint:styles": "stylelint --syntax=scss --config=./stylelint **/*.scss",
     "lint-staged": "lint-staged -r",
     "precommit": "npm run lint-staged"
@@ -68,6 +69,7 @@
     "jest-html-reporter": "^3.4.1",
     "jest-preset-angular": "^11.1.1",
     "lint-staged": "^12.3.7",
+    "prettier": "^2.5.1",
     "stylelint": "^14.1.0",
     "stylelint-config-standard": "^24.0.0",
     "stylelint-scss": "^4.0.0",
